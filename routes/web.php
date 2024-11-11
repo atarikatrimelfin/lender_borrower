@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BorrowerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,8 @@ Route::get('/register', [AuthController::class, 'reg'])->name('reg');
 // Route::post('/register', [AuthController::class, 'register'])->name('register');
 // Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Tambahkan route untuk dashboard borrower
+Route::get('/borrower/dashboard', [BorrowerController::class, 'index'])
+    ->name('borrower.dashboard')
+    ->middleware('auth');
